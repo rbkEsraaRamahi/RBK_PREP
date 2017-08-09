@@ -158,10 +158,10 @@ function reduce3(coll, f, acc) {
  //Introduction closures:
 //Q1+2:
  function makeCounter(n){
- 	var count=n
- 		return function counter(){
- 			count=count+1
- 			return count;
+  var count=n
+    return function counter(){
+      count=count+1
+      return count;
  }}
  ///Q3..Pow/////
 function pow(exponent) {
@@ -169,3 +169,34 @@ function pow(exponent) {
           return base**exponent
           }
      } 
+//More practice//Q2//
+
+function adding(){
+  var total=0
+  return function a(n){
+    if (n!==undefined){
+      total=total+n
+      n++
+        return a
+    }else {
+      return total;
+} 
+  }
+}
+//More practice //Q1!//
+function calculate(){
+  var arr=[]
+  return function(f,arr1,arr2){
+    each (arr1, function (ele, i){
+      each (arr2, function (element,j){
+        if (i===j){
+          arr.push(f(ele,element))
+        }
+      })
+
+    })
+    return arr;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
