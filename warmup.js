@@ -43,3 +43,14 @@ function reduce(array, f, acc) {
        return acc; 
  }
 
+ ////studing for challenge 3////////////////////////////////////////////////////////////////////////////////////
+//emproved reduce//
+//Q1//
+function range(start, end){
+ var arr=[];
+ for(var count=start; count<=end; count++){
+  arr.push(count)
+ }  
+ return arr;
+}
+
