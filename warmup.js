@@ -200,3 +200,92 @@ function calculate(){
 }
 
 //////////////////////////////////////////////////////////////////////
+//closures method:///
+function makeAccount(initial){
+  var balance= initial;
+  return{
+    withdraw:function(amount){
+      if(balance>=amount){
+        balance=balance-amount
+        return"your money: "+ balance;
+      }
+      return 'no sufficient money'
+      },
+    deposit: function(amount){
+      balance=balance+amount
+      return 'your balance is: ' + balance;
+    },
+    checkBalance: function(){
+      return 'Your balanceis: '+ balance;
+    }
+  }
+}
+/////
+function makeCounter2(n){
+  var count=n
+    return{
+      up: function(){
+      count=count+1
+      return count;
+       },
+      down: function(){
+      count=count-1
+      return count;
+       },
+      reset: function(){
+      count=n
+      return count;
+       }
+
+
+}
+
+
+    } 
+/////////////////////////////
+
+function makeAccount2(initial) {
+     var obj={}; 
+     obj.balance = initial;
+     obj.withdraw=withdraw;
+     obj.deposit=deposit;
+     return obj;   
+}
+
+var withdraw= function(amount) {
+               if (this.balance - amount >= 0) {
+                    this.balance = this.balance - amount;
+                    return 'Here is your money: $' + amount;
+               }
+          return 'Insufficient funds.';
+          }
+var deposit= function(amount) {
+               this.balance = this.balance + amount;
+               return 'Your balance is: $' + this.balance;
+          }
+//////////////////////
+function makeStopwatch() {
+     var obj={};
+     obj.time = 0;
+     obj.start=start;
+     obj.stop=stop;
+     obj.reset=reset;
+     return obj;
+}
+
+var start= function() {
+  var lol=this;
+    lol.stop = setInterval(function() {
+    lol.time = lol.time + 1;
+        console.log('Elapsed time: ' + lol.time + 's.');
+          }, 1000);
+     }
+var stop= function() {
+    clearInterval(stop);
+          }
+
+var reset= function() {
+  var lol=this;
+    clearInterval(lol.stop);
+               lol.time = 0;
+          }
